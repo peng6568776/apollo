@@ -47,4 +47,13 @@ public class AppOpenApiService extends AbstractOpenApiService {
       throw new RuntimeException(String.format("Load app information for appIds: %s failed", appIds), ex);
     }
   }
+
+  public String createApps(OpenAppDTO openAppDTO) throws RuntimeException {
+     String path = "apps/create";
+    try (CloseableHttpResponse response = post(path,openAppDTO)) {
+      return EntityUtils.toString(response.getEntity());
+    } catch (Throwable ex) {
+      throw new RuntimeException(String.format("create app failed,message: %s",ex.getMessage()),ex);
+    }
+  }
 }

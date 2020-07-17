@@ -72,6 +72,13 @@ public class ApolloOpenApiClient {
   }
 
   /**
+   * Get all App information
+   */
+  public String createApp(OpenAppDTO openAppDTO) {
+    return appService.createApps(openAppDTO);
+  }
+
+  /**
    * Get App information by app ids
    */
   public List<OpenAppDTO> getAppsByIds(List<String> appIds) {
